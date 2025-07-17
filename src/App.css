@@ -1,0 +1,293 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: var(--color-secondary);
+  color: var(--color-light);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: var(--color-light);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--color-primary);
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-links a {
+  color: var(--color-light);
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: var(--color-primary);
+}
+
+/* Content Card Styles */
+.content-card {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin: 2rem 0;
+  padding: 2rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.content-card.reverse {
+  flex-direction: row-reverse;
+}
+
+.card-text {
+  flex: 1;
+}
+
+.card-text h2 {
+  color: var(--color-secondary);
+  margin-bottom: 1rem;
+}
+
+.card-image {
+  flex: 1;
+  max-width: 400px;
+}
+
+.card-image img {
+  width: 100%;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .content-card {
+    flex-direction: column;
+  }
+  
+  .content-card.reverse {
+    flex-direction: column;
+  }
+  
+  .card-image {
+    max-width: 100%;
+  }
+}
+
+/* Hero Section */
+.home-page {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  color: var(--color-secondary);
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  margin-bottom: 2rem;
+}
+
+.intro {
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  color: var(--color-dark);
+}
+
+/* Projects Page */
+.projects-page {
+  padding: 2rem;
+}
+
+.projects-page h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--color-secondary);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-card h3 {
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.tags span {
+  background: var(--color-light);
+  color: var(--color-secondary);
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.project-link {
+  display: inline-block;
+  background: var(--color-secondary);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.project-link:hover {
+  background: var(--color-primary);
+  color: white;
+}
+
+/* Add to src/App.css */
+/* Experience Timeline Styles */
+.experience-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.experience-header {
+  margin-bottom: 1rem;
+}
+
+.experience-header h2 {
+  color: var(--color-secondary);
+  margin-bottom: 0.25rem;
+}
+
+.experience-header h3 {
+  color: var(--color-primary);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.experience-period {
+  display: inline-block;
+  background: var(--color-light);
+  color: var(--color-secondary);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.experience-description ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.experience-description li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.experience-description li:before {
+  content: "•";
+  color: var(--color-primary);
+  font-size: 1.5rem;
+  position: absolute;
+  left: 0;
+  top: -0.2rem;
+}
+
+/* Timeline connector */
+.content-card {
+  position: relative;
+  padding-left: 3rem;
+}
+
+.content-card:before {
+  content: "";
+  position: absolute;
+  left: 1.5rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--color-primary);
+  opacity: 0.2;
+}
+
+.content-card:first-child:before {
+  top: 2rem;
+}
+
+.content-card:last-child:before {
+  bottom: calc(100% - 2rem);
+}
+
+.card-image {
+  position: relative;
+  z-index: 1;
+}
+
+.card-image:before {
+  content: "";
+  position: absolute;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background: var(--color-primary);
+  border: 4px solid var(--color-light);
+  left: -3.75rem;
+  top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .content-card {
+    padding-left: 2rem;
+  }
+  
+  .content-card:before {
+    left: 0.75rem;
+  }
+  
+  .card-image:before {
+    left: -2.25rem;
+  }
+}
