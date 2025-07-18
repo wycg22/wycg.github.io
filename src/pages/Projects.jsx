@@ -1,4 +1,16 @@
+import { useState } from 'react';
+import GalleryModal from '../components/GalleryModal';
+
 const Projects = () => {
+  const [activeGallery, setActiveGallery] = useState(null); // Add this line
+
+  const openGallery = (projectTitle) => {
+    setActiveGallery(projectTitle);
+  };
+
+  const closeGallery = () => {
+    setActiveGallery(null);
+  };
   const projects = [
     {
       title: "Cableway Inspection Report GUI",
@@ -9,7 +21,6 @@ const Projects = () => {
     {
       title: "F1tenth Autonomous Driving Algorithm",
       desc: "Developed a competitive self-driving algorithm for F1/10 scale racecars using ROS2 and OpenCV, implementing gap-following navigation and PID control to reduce lap times while avoiding obstacles.",
-      link: "#",
       tags: ["C++", "Python", "OpenCV", "ROS2", "Ubuntu"]
     },
     {
@@ -44,11 +55,33 @@ const Projects = () => {
                 <span key={tag}>{tag}</span>
               ))}
             </div>
-            <a href={project.link} className="project-link">View Project</a>
-            <a href={project.link} className="project-link">Github</a>
+            <div className="project-buttons">
+              <button 
+                className="gallery-button"
+                onClick={() => openGallery(project.title)} 
+              >
+                View Project
+              </button>
+              {project.link && (
+                <a 
+                  href={project.link} 
+                  className="github-button"
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  GitHub
+                </a>
+              )}
+            </div>
           </div>
         ))}
       </div>
+      {activeGallery && (
+      <GalleryModal 
+        projectTitle={activeGallery} 
+        onClose={closeGallery} 
+      />
+    )}
     </div>
   );
 };
